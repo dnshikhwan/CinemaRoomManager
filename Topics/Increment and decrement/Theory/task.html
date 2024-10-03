@@ -1,0 +1,37 @@
+<div class="step-text">
+<p>In this topic, we will discuss one of the most famous operations in programming: <strong>increment</strong>. It is used in many programming languages, including Java, to increase a <a class="theory-lookup not-relevant" href="/learn/step/5008" rel="noopener noreferrer nofollow" target="_blank" title="In Java, a variable is a named storage location that is used to store a value of a specific type. | It is declared with a specific data type, which determines the kind of value that can be stored in it. Every variable has a unique name, also known as an identifier, which is used to access its value. Variables can be declared and initialized in a single statement, and their value can be accessed and modified using the name. It's important to note that variables can be changed, meaning you can assign a new value to a variable without having to declare it again.">variable</a> by one. Fun fact: the name of the C++ programming language is a reference to this operation, signifying the evolutionary nature of the changes from C.</p>
+<h5 id="using-and-in-java">Using ++ and -- in Java</h5>
+<p>Java has two opposite operations called <strong>increment</strong> (<code class="language-java">++</code>) and <strong>decrement</strong> (<code class="language-java">--</code>), which increase or decrease the value of a variable by one.</p>
+<pre><code class="language-java">int n = 10;
+n++; // 11
+n--; // 10</code></pre>
+<p>The code above is equivalent to the code below.</p>
+<pre><code class="language-java">int n = 10;
+n += 1; // 11
+n -= 1; // 10</code></pre>
+<h5 id="prefix-and-postfix-forms">Prefix and postfix forms</h5>
+<p>Both increment and decrement operators have two forms, which are very important when using the result in the current statement:</p>
+<ul><li><p>the <strong>prefix</strong> form (<code class="language-java">++n</code> or <code class="language-java">--n</code>) increases or decreases the value of a variable before it is used;</p></li><li><p>the <strong>postfix </strong>form (<code class="language-java">n++</code> or <code class="language-java">n--</code>) increases or decreases the value of a variable after it is used.</p></li></ul>
+<p>The following examples demonstrate both forms of increment.</p>
+<p><strong>Prefix increment:</strong></p>
+<pre><code class="language-java">int a = 4;
+int b = ++a;
+
+System.out.println(a); // 5
+System.out.println(b); // 5</code></pre>
+<p>In this case, the value of <code class="language-java">a</code> has been incremented and then assigned to <code class="language-java">b</code>. So, <code class="language-java">b</code> is 5.</p>
+<p><strong>Postfix increment:</strong></p>
+<pre><code class="language-java">int a = 4;
+int b = a++;
+
+System.out.println(a); // 5
+System.out.println(b); // 4
+</code></pre>
+<p>In Java, the postfix operator has higher <a class="theory-lookup not-relevant" href="/learn/step/5008" rel="noopener noreferrer nofollow" target="_blank" title="In Java, precedence refers to the order of performing and grouping operations in an expression. | Operations with higher precedence are performed before those with lower precedence. For example, multiplication and division have a higher precedence than addition and subtraction. Parentheses can be used to specify the order of execution and can be nested. Additionally, there is a precedence order of all arithmetic operators, including parentheses, with unary plus/minus having the highest level of precedence, followed by multiplication and division, and then addition and subtraction.">precedence</a> than the <a class="theory-lookup not-relevant" href="/learn/step/5008" rel="noopener noreferrer nofollow" target="_blank" title="In Java, an assignment operator is a symbol used to assign a value to a variable. | The most common assignment operator is the single equals sign (=), which assigns the value on the right to the variable on the left. For example, in the statement `int x = 10;`, the assignment operator is used to assign the value 10 to the variable x. It's important to note that the assignment operator should not be confused with the equality operator (==), which is used to test for equality between two expressions.">assignment operator</a>. However, it returns the original value of <code class="language-java">a</code>, not the incremented one. That's why when we assign <code class="language-java">a++</code>  to <code class="language-java">b</code>,  we actually assign 4,  and then variable <code class="language-java">a</code> is incremented. So, <code class="language-java">b</code> is 4 and <code class="language-java">a</code> is 5.</p>
+<p>If that's still not clear enough for you, take a look at the code:</p>
+<pre><code class="language-java">int a = 4;
+System.out.println(a++ + a); // this is 9</code></pre>
+<p>We hope that now you fully understand the increment and decrement operations and their prefix and postfix forms.</p>
+<h5 id="conclusion">Conclusion</h5>
+<p>Congratulations, you've just learned the fundamental operations in Java: increment (++) and decrement (--). These operations can be used in two forms: prefix (++n or --n), which modifies the value before its use in a statement, and postfix (n++ or n--), which modifies it after. Grasping these operations is vital due to their widespread use in many aspects of programming.</p>
+</div>

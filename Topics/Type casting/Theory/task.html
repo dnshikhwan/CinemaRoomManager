@@ -1,0 +1,78 @@
+<div class="step-text">
+<p>Suppose you need to assign a value of one type to a variable of another type. To do that, your program needs to cast the source type to the <a class="theory-lookup not-relevant" href="/learn/step/3510" rel="noopener noreferrer nofollow" target="_blank" title="In Java, a target type is the data type that a value or variable is being assigned or converted to. | This is important in the context of implicit and explicit casting, where the target type can accommodate the source type or not. For example, converting a smaller integer type to a larger integer type is an implicit casting, and it can be done automatically by the compiler. On the other hand, explicit casting is a process where a programmer manually converts a value from one data type to another, even if the target type is narrower than the source type, which can result in loss of data. A target type can also be a generic type, which is a generic class or interface that is parameterized over type. A target type can be a class type, an interface type, or an array type. It is important to note that a variable of a class type can be null, meaning it is not initialized yet, this is a common feature in Java, available for class since they are reference types. In summary, a target type in Java is the data type that a value or variable is being assigned or converted to, it can be a primitive type, a reference type, a generic type, a class type, an interface type or an array type.">target type</a>. Java provides two kinds of casting for <a class="theory-lookup not-relevant" href="/learn/step/3510" rel="noopener noreferrer nofollow" target="_blank" title="In Java, a primitive type is one of eight built-in data types provided by the language. | They are represented by keywords and are not objects, unlike reference types. Primitive types are divided into groups based on their meaning, and each group operates similarly but has different sizes and ranges of value. The most commonly used primitive type is `int`, which represents an integer number. Java also provides several types for integer and fractional numbers, which are often used in arithmetic expressions. Primitive types store their value directly, unlike reference types that store a reference to an object located elsewhere.">primitive types</a>:<strong> implicit</strong> and <strong>explicit</strong>. The first one is performed automatically by the Java compiler when it is possible, while the second one can only be done by a programmer.</p>
+<h5 id="implicit-casting">Implicit casting</h5>
+<p>The compiler automatically performs <strong><a class="theory-lookup not-relevant" href="/learn/step/3510" rel="noopener noreferrer nofollow" target="_blank" title="In Java, implicit casting, also known as automatic casting, is a process where the compiler automatically converts a value of one type to another type without requiring any explicit instruction from the programmer. | This occurs when the target type is wider than the source type, meaning that the target type can accommodate all possible values of the source type. An example of implicit casting includes converting a smaller integer type to a larger integer type. Implicit casting works absolutely transparently, but it's important to note that it does not work when the target type is narrower than the source type.">implicit casting</a></strong> when the target type is wider than the source type. The picture below illustrates the direction of this casting. Any value of a given type can be assigned to the one on the right implicitly or below in the case of <code class="language-java">char</code>.</p>
+<p style="text-align: center;"><picture><img alt="implicit casting" height="217" src="https://ucarecdn.com/c00fb67e-ba08-44a2-ad8b-0ffbdfe8d642/" width="1461"/></picture></p>
+<p style="text-align: center;"><br/><br/><strong>The</strong> <strong>direction</strong> <strong>of</strong> <strong>implicit</strong> <strong>primitive</strong> <strong>type</strong> <strong>castings</strong></p>
+<p>Normally, there is no loss of information when the target type is wider than the source type, for example, when we cast <code class="language-java">int</code> to <code class="language-java">long</code>. But it is not possible to automatically cast in the backward order (e.g. from <code class="language-java">long</code> to <code class="language-java">int</code> or from <code class="language-java">double</code> to <code class="language-java">float</code>).</p>
+<p> </p>
+<p></p>
+<div class="alert alert-primary"><p>Note that there is no <code class="language-java">boolean</code> type on the picture above because it is impossible to cast this type to any other and vice versa.</p></div>
+<p></p>
+<p> </p>
+<p>Here are several examples of implicit castings:</p>
+<ul><li><p>from <code class="language-java">int</code> to <code class="language-java">long</code>:</p></li></ul>
+<pre><code class="language-java">int num = 100;
+long bigNum = num; // 100L
+</code></pre>
+<ul><li><p>from <code class="language-java">long</code> to <code class="language-java">double</code>:</p></li></ul>
+<pre><code class="language-java">long bigNum = 100_000_000L;
+double bigFraction = bigNum; // 100000000.0
+</code></pre>
+<ul><li><p> from <code class="language-java">short</code> to <code class="language-java">int</code>:</p></li></ul>
+<pre><code class="language-java">short shortNum = 100;
+int num = shortNum; // 100</code></pre>
+<ul><li><p> from <code class="language-java">char</code> to <code class="language-java">int</code>:</p></li></ul>
+<pre><code class="language-java">char ch = '?';
+int code = ch; // 63</code></pre>
+<p>In some cases, implicit <a class="theory-lookup not-relevant" href="/learn/step/3510" rel="noopener noreferrer nofollow" target="_blank" title="In Java, type casting is the process of converting a value from one data type to another. | This can be done explicitly, which means the programmer manually specifies the conversion using parentheses, or implicitly, where the conversion is automatically done by the compiler. Explicit casting is used when converting to a narrower type, which can result in loss of information or precision. Implicit casting, on the other hand, occurs when the target type is wider than the source type, such as converting a smaller integer type to a larger integer type.">type casting</a> may result in some information loss. When we convert an <code class="language-java">int</code> to <code class="language-java">float</code>, or a <code class="language-java">long</code> to <code class="language-java">float</code> or to <code class="language-java">double</code>, we may lose some less significant bits of the value, which will result in a loss of precision. However, the result of this conversion will be a correctly rounded version of the integer value, which will be in the overall range of the target type. To understand that, check out the example:</p>
+<pre><code class="language-java">long bigLong =  1_200_000_002L;
+float bigFloat = bigLong; // 1.2E9 (= 1_200_000_000)</code></pre>
+<p>When we convert a <code class="language-java">char</code> to an <code class="language-java">int</code> in Java, we actually get the ASCII value for a given character. The ASCII value is an integer representation of English alphabet letters (both uppercase and lowercase), digits, and other symbols. <a href="https://ascii.cl/" rel="noopener noreferrer nofollow" target="_blank">Here</a> you can find some of the standard symbols in ASCII.</p>
+<pre><code class="language-java">char character = 'a';
+char upperCase = 'A';
+
+int ascii1 = character; // this is 97
+int ascii2 = upperCase; // this is 65</code></pre>
+<p> </p>
+<p></p>
+<div class="alert alert-primary"><p>Strictly speaking, Java uses Unicode Character Representations (UTF-16), which is a superset of ASCII and includes a by far larger set of symbols. However, the numbers 0–127 have the same values in ASCII and Unicode.</p></div>
+<p></p>
+<p> </p>
+<p>As you can see, implicit casting works absolutely transparently.</p>
+<h5 id="explicit-casting">Explicit casting</h5>
+<p>The considered <strong>implicit casting</strong> does not work when the target type is narrower than the source type. But programmers can apply <strong>explicit casting</strong> to a source type to get another type they want. It may lose information about the overall magnitude of a numeric value and may also lose precision.</p>
+<p>To perform explicit casting, a programmer must write the target type in parentheses before the source.</p>
+<pre><code class="language-java">(targetType) source</code></pre>
+<p>Any possible casting not presented in the picture above needs such an approach, for example <code class="language-java">double</code> to <code class="language-java">int</code>, and <code class="language-java">long</code> to <code class="language-java">char</code>.</p>
+<p>Examples:</p>
+<pre><code class="language-java">double d = 2.00003;
+
+// it loses the fractional part
+long l =  (long) d; // 2
+
+// requires explicit casting because long is wider than int
+int i = (int) l; // 2 
+
+// requires explicit casting because the result is long (indicated by L)
+int val = (int) (3 + 2L); // 5
+
+// casting from a long literal to char
+char ch = (char) 55L; // '7'</code></pre>
+<p>However, the explicit casting may truncate the value because <code class="language-java">long</code> and <code class="language-java">double</code> can store a much larger number than <code class="language-java">int</code>.</p>
+<pre><code class="language-java">long bigNum = 100_000_000_000_000L;
+int n = (int) bigNum; // 276447232</code></pre>
+<p>Oops! The value has been truncated. This problem is known as <strong><a class="theory-lookup not-relevant" href="/learn/step/3510" rel="noopener noreferrer nofollow" target="_blank" title="In Java, type overflow is a situation that occurs when a value is too large to be stored in a variable of a particular data type, causing it to overflow and wrap around to a smaller value. | This can happen with integer types when the value exceeds their maximum positive or negative range, or with floating-point types when the value exceeds their maximum precision. Type overflow can lead to unexpected results and should be avoided by using an appropriate data type and performing range checks. Explicit casting, also known as narrowing, is done manually by the programmer and can result in type overflow if the target type cannot store the full value of the source type.">type overflow</a></strong>. The same problem may occur when casting <code class="language-java">int</code> to <code class="language-java">short</code> or <code class="language-java">byte</code>. Let's see what happens exactly. </p>
+<p>As you remember, in Java <code class="language-java">long</code> is a 64-bit number, while <code class="language-java">int</code> is 32-bit. When converting <code class="language-java">long</code> to <code class="language-java">int</code> the program just takes the last 32 bits to represent the new number. If the <code class="language-java">long</code> contains a number less than or equal to <code class="language-java">Integer.MAX_VALUE</code> you can convert it by casting without losing information. Otherwise, the result will be quite meaningless, although determined. That is why you shouldn't perform casting from a larger type to a smaller type unless you are absolutely sure that it is necessary and that truncation will not interfere with your program.</p>
+<p>Explicit casting also works when implicit casting is enough.</p>
+<pre><code class="language-java">int num = 10;
+long bigNum = (long) num; // redundant casting</code></pre>
+<p>But this is redundant and should not be used to avoid unnecessary constructs in your code.</p>
+<p> </p>
+<p></p>
+<div class="alert alert-primary"><p><strong>Note,</strong> that despite the power of explicit casting, it is still impossible to cast something to and from the <code class="language-java">boolean</code> type.</p></div>
+<p></p>
+<p> </p>
+<h5 id="conclusion">Conclusion</h5>
+<p>If you want to cast a narrower type to a wider type, you do not need to write anything, the Java <a class="theory-lookup not-relevant" href="/learn/step/3510" rel="noopener noreferrer nofollow" target="_blank" title="In Java, a compiler is a program that takes Java source code and converts it into bytecode, which is an intermediate representation of the program. | This bytecode is stored in a .class file and can be executed by the Java Virtual Machine (JVM). The compiler is responsible for catching and reporting any compile-time errors in the source code, such as syntax errors or mismatched method declarations. Additionally, modern IDEs often include static code analyzers that work with the compiler to identify potential errors and provide suggestions for improving the code before the compilation process even begins.">compiler</a> will do it automatically for you. But if you want the opposite, specify the required type in parentheses following the <a class="theory-lookup not-relevant" href="/learn/step/3510" rel="noopener noreferrer nofollow" target="_blank" title="In Java, an assignment operator is a symbol used to assign a value to a variable. | The most common assignment operator is the single equals sign (=), which assigns the value on the right to the variable on the left. For example, in the statement `int x = 10;`, the assignment operator is used to assign the value 10 to the variable x. It's important to note that the assignment operator should not be confused with the equality operator (==), which is used to test for equality between two expressions.">assignment operator</a>. Keep in mind, the <code class="language-java">boolean</code> type cannot be cast to another type and vice versa.</p>
+</div>

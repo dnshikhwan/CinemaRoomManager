@@ -1,0 +1,75 @@
+<div class="step-text">
+<p>You may remember that a method is a sequence of <a class="theory-lookup not-relevant" href="/learn/step/10973" rel="noopener noreferrer nofollow" target="_blank" title="In Java, a statement is a unit of code that performs a specific action. | It can be a standalone instruction or a part of a larger block of code. A statement can take various forms, such as assignment statements, object creation statements, method invocation statements, or control flow statements. Control flow statements, such as if-else statements or switch statements, allow for decision-making and conditional execution of code based on certain conditions. A statement's execution order is determined by the program's control flow, which can be affected by blocks, loops, and other control structures.">statements</a> that can be invoked or referred to by its name. Nothing special, huh? But what if we tell you that you can use it in a program anytime you need and anywhere you want just by invoking it with one line of code? Hope that we have caught your attention now!</p>
+<p>To get started, we will call any method:</p>
+<pre><code class="language-java">getVolume(a, b, h);</code></pre>
+<p>Here, <code class="language-java">getVolume</code> is the name of the method that, for example, calculates a volume of some geometric shape, and the variables <code class="language-java">a</code>, <code class="language-java">b</code> and <code class="language-java">h</code> are its parameters. Technically, the parameter of a method is some value that is used inside the method. The combination of the name and method parameters in parentheses is the way we call or invoke the method. Let's focus on it in more detail.</p>
+<h5 id="what-is-calling-a-method">What is calling a method</h5>
+<p>Let's say that there exists a method, that calculates a volume of a box:</p>
+<pre><code class="language-java">static void calculateVolume(int length, int width, int height) {
+    int volume = length * width * height;
+    System.out.println(volume);
+}</code></pre>
+<p>Don't worry, for now, you don't need to fully understand the entire code. That's called a method <a class="theory-lookup not-relevant" href="/learn/step/10973" rel="noopener noreferrer nofollow" target="_blank" title="In Java, a declaration is a statement that introduces a variable, method, or class into the program. | It specifies the type of the entity being declared, its name, and other relevant information such as access modifiers, return type (for methods), and initial values (for variables). For example, the declaration of a method may include its name, return type, access modifier, and parameter list. Declarations are essential for Java to understand the structure and behavior of the program. Incorrect declarations can lead to compilation errors. Java 10 introduced type inference, which allows developers to use the var keyword instead of a specific type, and the type is automatically inferred based on the assigned value.">declaration</a> and will be discussed in further topics. However, for a more detailed understanding let's break it down:</p>
+<ul><li><p>The method is called <code class="language-java">calculateVolume</code>, and we'll use this name when we want to <strong>call</strong> it later.</p></li><li><p>The part in parentheses is where we <a class="theory-lookup not-relevant" href="/learn/step/10973" rel="noopener noreferrer nofollow" target="_blank" title="In Java, a declaration is a statement that introduces a variable, method, or class into the program. | It specifies the type of the entity being declared, its name, and other relevant information such as access modifier, return type (for method), and initial value (for variable). For example, the declaration of a method may include its name, return type, access modifier, and parameter list. Declarations are essential for Java to understand the structure and behavior of the program. Incorrect declarations can lead to compilation errors. In the context of variables, a declaration specifies the type, name, and initial value of a variable. The type of a variable determines what possible operations can be performed on the variable and which value can be stored in it. Every variable has a name (also known as an identifier) to distinguish it from others. Before using a variable, it must be declared. The general form of a variable declaration is: `type identifier = value;`
+
+It's important to note that a declaration is not the same as an assignment.">declare</a> some <a class="theory-lookup not-relevant" href="/learn/step/10973" rel="noopener noreferrer nofollow" target="_blank" title="In Java, a variable is a named storage location that is used to store a value of a specific type. | It is declared with a specific data type, which determines the kind of value that can be stored in it. Every variable has a unique name, also known as an identifier, which is used to access its value. Variables can be declared and initialized in a single statement, and their value can be accessed and modified using the name. It's important to note that variables can be changed, meaning you can assign a new value to a variable without having to declare it again.">variables</a> that the method will use in its code, we set the values for these variables when we <strong>call</strong> a method. In example above there are three of them: length, width and height of a box.</p></li><li><p>The code inside curly brackets is a sequence of statements that will be executed when we <strong>call</strong> this method. In the example it just multiplies three values passed as parameters and prints the result.</p></li></ul>
+<p>If you want to call (or invoke) a method in your program, you should write its name and pass the values of its parameters in parentheses. Here's how it can be done:</p>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        calculateVolume(3, 7, 2);
+    }
+
+    static void calculateVolume(int length, int width, int height) {
+        int volume = length * width * height;
+        System.out.println("The volume of a box is equal to " + volume);
+    }
+}</code></pre>
+<p>Here we call a <code class="language-java">calculateVolume</code> method with three parameters: <strong>3</strong>, <strong>7</strong> and <strong>2. </strong>This basically means that the <code class="language-java">length</code>, <code class="language-java">width</code>, and <code class="language-java">height</code> variables are set to these values respectively. Next, the code within the curly brackets is executed, calculating the volume and printing the result. Therefore, the execution of the whole program results in the following output:</p>
+<pre><code class="language-java">The volume of a box is equal to 42</code></pre>
+<p>That said, to call a method means to instruct the program to execute a specific set of code within that method. It involves using the method's name and providing the necessary arguments.</p>
+<h5 id="invoking-a-method-with-different-parameters">Invoking a method with different parameters</h5>
+<p>Since the method we're calling (or invoking) depends on the passed parameters, if we pass other values to it, the result of the program will also change:</p>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        calculateVolume(3, 7, 2); // The volume of a box is equal to 42
+        calculateVolume(14, 6, 8); // The volume of a box is equal to 672
+        calculateVolume(2, 2, 2); // The volume of a box is equal to 8
+    }
+
+    static void calculateVolume(int length, int width, int height) {
+        int volume = length * width * height;
+        System.out.println("The volume of a box is equal to " + volume);
+    }
+}</code></pre>
+<p>However, when calling a method you should always provide the correct number and types of arguments that the method expects. That said, the following calls will produce a compile error:</p>
+<ul><li><p><code class="language-java">calculateVolume(1, 2);</code></p></li><li><p><code class="language-java">calculateVolume("Hello", true, 6);</code></p></li></ul>
+<p>Let's say there is another method that takes a student's name and average score as parameters and prints them:</p>
+<pre><code class="language-java">static void printStudent(String name, double averageScore) {
+    System.out.println("Name: " + name);
+    System.out.println("Average score: " + averageScore);
+}</code></pre>
+<p>In this case, the method expects us to pass two values of different types. Therefore, the correct usage example of this method will be:</p>
+<pre><code class="language-java">printStudent("John", 3.14); 
+// Name: John
+// Average score: 3.14</code></pre>
+<p>Not all methods expect any parameters; some are designed to operate without any provided data. When invoking such methods, you don't need to provide any arguments, so just leave the parentheses empty as follows: <code class="language-java">doSomething()</code>.</p>
+<h5 id="different-ways">Different ways</h5>
+<p>Some methods are called in a slightly different ways. Let's take a look at some of them.</p>
+<p>To call a method from outside the class it belongs to, you need to indicate a class as a prefix. Check these methods:</p>
+<pre><code class="language-java">Math.round(79.378); // method with Math class name
+Character.isLetter('a'); // method with Character class name</code></pre>
+<p>Let's try to perform a small task by invoking a method:</p>
+<pre><code class="language-java">double weight = 63.85;
+weight = Math.round(weight); // now weight equals 64.0</code></pre>
+<p>Methods that operate on specific instances are called <a class="theory-lookup not-relevant" href="/learn/step/10973" rel="noopener noreferrer nofollow" target="_blank" title="In Java, an instance method is a method that belongs to each object created of a particular class. | It can access fields of the specific object of the class. For example, if we have a class with two instance methods: method1() and method2(), and two objects: object1 and object2, the output of these methods will be different for each object because they have different values for the fields. To use an instance method, you must first create an object.">instance methods</a>. Methods like this require an object to be invoked. Take a look:</p>
+<pre><code class="language-java">String s = "HellO, WoRlD!";
+s = s.toLowerCase(); // hello, world!</code></pre>
+<p>Before we called the <code class="language-java">toLowerCase()</code> method, we created an object of the <code class="language-java">String</code> type called <code class="language-java">s</code>, since the method in question deals with strings. Now we can call the method for this particular instance<em>, </em>which results in decapitalizing all the letters from our string.</p>
+<p>As you see, this method requires an instance to be created before it can be called, that's why it is known as an <strong>instance method</strong>. We will talk about this type of method later.</p>
+<h5 id="built-in-methods">Built-in methods</h5>
+<p>Why do you need to rewrite algorithms that have already been written? Of course, we're not talking about some special cases like educational tasks. Still, it is more efficient to use pre-defined methods that are always available to the user. That is why there are two types of methods in Java: <strong>built-in</strong> and <strong>user-defined </strong>methods.</p>
+<p><a class="theory-lookup not-relevant" href="/learn/step/10973" rel="noopener noreferrer nofollow" target="_blank" title="In Java, built-in methods are pre-defined functions that are always available to the user, belonging to the standard Java library. | They are used to perform various operations such as converting or comparing values, rounding doubles, finding maximum or minimum values, and more. Built-in methods are part of the Java library, and there are many of them that can be found in the Oracle documentation. They are useful for managing routine tasks, but they are not a cure-all solution as it is impossible to provide a standard method for each specific task.">Built-in methods</a> belong to the Standard Java library. Now there are a lot of built-in methods that convert or compare values, round doubles, find the maximum or the minimum value, and do a lot of useful operations. We've already dealt with the <code class="language-java">round()</code> and <code class="language-java">isLetter()</code> methods, but the number of built-in methods is huge and constantly growing. You can find the method you need in the Oracle documentation. For example, check out the link to the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html" rel="noopener noreferrer nofollow" target="_blank">Math library</a>.</p>
+<p>In contrast to built-in methods, user-defined methods are created by the programmer. It is a common practice to create a customized subprogram for a specific purpose. Later on, we will learn why it is a good practice to use user-defined methods and how to actually create them.</p>
+<h5 id="conclusion">Conclusion</h5>
+<p>Generally, a method is a necessary tool for a programmer who is aiming for a neat and reusable code style. With the help of methods, you can perform any specific task you need. They make the program look more readable, and you don't need to repeat routine code lines over and over. Some tasks are wrapped in special built-in methods that are part of the standard Java library. Also, there are user-defined methods that are created by the programmer. We will discuss these methods in other topics.</p>
+</div>

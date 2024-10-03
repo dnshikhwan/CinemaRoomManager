@@ -1,0 +1,50 @@
+# course config files
+*.yaml
+
+# gradle
+.gradle/
+build
+
+
+# idea config
+.idea
+
+# old stages
+/Cinema Room Manager/*
+!/Cinema Room Manager/task/
+/Cinema Room Manager/task/*
+!/Cinema Room Manager/task/src
+
+# Project exclude paths
+/Topics/Break and continue. Branching/Integer iteration with selective conditions and halt/out/
+/Topics/Break and continue. Branching/Integer iteration with selective conditions and halt/out/production/classes/
+/Topics/Break and continue. Branching/Squaring up to the next perfect number/out/
+/Topics/Break and continue. Branching/Squaring up to the next perfect number/out/production/classes/
+/Topics/Break and continue. Branching/The integer barrier/out/
+/Topics/Break and continue. Branching/The integer barrier/out/production/classes/
+/Topics/Floating-point types/Distance/out/
+/Topics/Floating-point types/Distance/out/production/classes/
+/Topics/For loop/The sum of integers from a to b/out/
+/Topics/For loop/The sum of integers from a to b/out/production/classes/
+/Topics/Increment and decrement/Increase, decrease and increase an integer/out/
+/Topics/Increment and decrement/Increase, decrease and increase an integer/out/production/classes/
+/Topics/Iterating over arrays/Two numbers never occur next to each other/out/
+/Topics/Iterating over arrays/Two numbers never occur next to each other/out/production/classes/
+/Topics/Multidimensional array/Reverse elements/out/
+/Topics/Multidimensional array/Reverse elements/out/production/classes/
+/Topics/Multidimensional array/The star figure/out/
+/Topics/Multidimensional array/The star figure/out/production/classes/
+/Topics/Multiple conditions  switch/Shape/out/
+/Topics/Multiple conditions  switch/Shape/out/production/classes/
+/Topics/Primitive and reference types/Creating a primitive/out/
+/Topics/Primitive and reference types/Creating a primitive/out/production/classes/
+/Topics/Primitive and reference types/Creating a reference type/out/
+/Topics/Primitive and reference types/Creating a reference type/out/production/classes/
+/Topics/Printing data/From 0 to 4/out/
+/Topics/Printing data/From 0 to 4/out/production/classes/
+/Topics/Type casting/Rounding down a halved float value to an integer/out/
+/Topics/Type casting/Rounding down a halved float value to an integer/out/production/classes/
+/Topics/While and do-while loops/The length of the sequence/out/
+/Topics/While and do-while loops/The length of the sequence/out/production/classes/
+/Topics/While and do-while loops/The sum of elements/out/
+/Topics/While and do-while loops/The sum of elements/out/production/classes/

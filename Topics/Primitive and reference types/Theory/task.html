@@ -1,0 +1,69 @@
+<div class="step-text">
+<p>In Java, all <a class="theory-lookup not-relevant" href="/learn/step/5035" rel="noopener noreferrer nofollow" target="_blank" title="In Java, a data type is a category that determines the type of data a variable can hold and the operations that can be performed on it. | Java has two groups of data types: primitive and reference types. Primitive data types are built-in and include eight types, such as int (integer number), float and double (fractional numbers), and boolean (true or false values). Reference types, on the other hand, are used to represent objects, and they are created using the keyword new. When a reference type is created, memory is allocated for the object, and it is called instantiation. Floating-point types, such as float and double, represent numbers that contain an integer part, a fractional part, and their separator, commonly used in fields such as science, statistics, and engineering.">data types</a> are separated into two groups: <strong><a class="theory-lookup not-relevant" href="/learn/step/5035" rel="noopener noreferrer nofollow" target="_blank" title="In Java, a primitive type is one of eight built-in data types provided by the language. | They are represented by keywords and are not objects, unlike reference types. Primitive types are divided into groups based on their meaning, and each group operates similarly but has different sizes and ranges of value. The most commonly used primitive type is `int`, which represents an integer number. Java also provides several types for integer and fractional numbers, which are often used in arithmetic expressions. Primitive types store their value directly, unlike reference types that store a reference to an object located elsewhere.">primitive types</a></strong> and <strong><a class="theory-lookup not-relevant" href="/learn/step/5035" rel="noopener noreferrer nofollow" target="_blank" title="In Java, a reference type is a type of variable that stores a reference to an object located elsewhere in memory, rather than storing the object's value directly. | When an object is created using the new operator, it returns a reference to the location of the object in memory, allowing access to its fields and methods. Reference types can be assigned to variables, passed as arguments to methods, and returned as values from methods. They are important for creating complex, object-oriented programs in Java. Unlike primitive types, which store their values directly, reference types store a reference to an object. When comparing reference types using the == operator, it compares the references (memory addresses) rather than the actual values. Additionally, assigning one value of a reference variable to another creates a copy of the reference, rather than the value itself. Reference types can also refer to a special value that represents the fact that it is not initialized yet or does not have a value. It is important to note that in Java, the heap is the region of memory where objects are stored and allocated dynamically during runtime.">reference types</a>.</strong></p>
+<p>Java provides only eight primitive types. They are built-in in the language syntax as keywords. The names of all primitive types are lowercase. The most commonly used type is <code class="language-java">int</code> which represents an integer number.</p>
+<pre><code class="language-java">int num = 100;</code></pre>
+<p>The number of reference types is huge and constantly growing. A programmer can even create their own type and use it like standard types. The most frequently used reference types are <code class="language-java">String</code>, <code class="language-java">Scanner</code> and arrays. Remember that Java, like most programming languages, is case sensitive.<br/><br/>
+In this topic, we will focus on <code class="language-java">String</code>, which is a common example of the reference type.</p>
+<h5 id="the-new-keyword" style="text-align: center;">The new keyword</h5>
+<p>In most cases, an object of a reference type can be created using the <code class="language-java">new</code> keyword. When we use the <code class="language-java">new</code> keyword, the memory is allocated for the object we create. That is called <a class="theory-lookup not-relevant" href="/learn/step/5035" rel="noopener noreferrer nofollow" target="_blank" title="In Java, instantiation is the process of creating an object from a class blueprint. | This is done using the 'new' keyword followed by the class name, which allocates memory for the object and calls its constructor to initialize the object's state. Instantiated objects have their own identity and state, allowing them to interact with other objects and methods in the program. It's important to note that instantiation is a fundamental concept in object-oriented programming, as it enables the creation of multiple instances of a class, each with its own unique characteristics and behavior.">instantiation</a> of the object because we create an instance of it. Then we initialize the variable by assigning some value to it. Often, as in our example, it is done with one line.</p>
+<pre><code class="language-java">String language = new String("java"); 
+//instantiation of String and initialization with "java"
+</code></pre>
+<p>You can also use a literal for strings:</p>
+<pre><code class="language-java">String language = "java";</code></pre>
+<p>The first approach with the keyword <code class="language-java">new</code> is common for reference types, while the second is only string-specific. Both approaches give us the same result for strings but they have some technical differences which we will not consider here. </p>
+<h5 id="the-main-difference" style="text-align: center;">The main difference</h5>
+<p>The basic difference between primitive and reference types is that a variable of a primitive type stores the actual values, whereas a variable of a reference type stores an address in memory (reference) where the data is located. The data can be presented as a complex structure that includes other data types as their parts.</p>
+<p>The following picture simply demonstrates this difference. There are two main memory spaces: <strong>stack</strong> and <strong>heap</strong>. All values of primitive types are stored in stack memory, but variables of reference types store addresses of objects located in heap memory.</p>
+<p style="text-align: center;"> </p>
+<p style="text-align: center;"><picture><img alt="stack and heap diagram" height="287" src="https://ucarecdn.com/1f65bb80-d7af-44fa-b847-9bfcc674da63/" width="399"/></picture></p>
+<p> </p>
+<p>We will not consider stack and heap in detail here. Just remember this difference between primitive and reference types.</p>
+<h5 id="assignment" style="text-align: center;">Assignment</h5>
+<p>The way to store data also affects the mechanism to assign the value of a variable to another variable:</p>
+<ul>
+<li><strong>primitive types</strong>: the value is just copied;</li>
+<li><strong>reference types</strong>: the address to the value is copied (the data is shared between several variables).</li>
+</ul>
+<p>Here is a snippet of code and a picture that demonstrates this.</p>
+<pre><code class="language-java">int a = 100;
+int b = a; // 100 is copied to b
+
+String language = new String("java");
+String java = language;
+</code></pre>
+<p>The variable <code class="language-java">b</code> has a copy of the value stored in the variable <code class="language-java">a</code>. But the variables <code class="language-java">language</code> and <code class="language-java">java</code> reference the same value, rather than copying it. The picture below clearly demonstrates the difference.</p>
+<p style="text-align: center;"><picture><img alt="stack and heap" height="296" src="https://ucarecdn.com/45c7da14-b310-49a3-8b74-c51aff294952/" width="419"/></picture></p>
+<p>Just remember, when assigning one value of a <a class="theory-lookup not-relevant" href="/learn/step/5035" rel="noopener noreferrer nofollow" target="_blank" title="In Java, a reference variable is a variable that refers to an object or instance of a class. | When an object is created using the new operator, it returns a reference in memory where the object is located. With this reference, you can access and modify the object's fields. Multiple variables can refer to the same object through a reference. It is also possible to create two independent objects with the same field's content, but it's important to note that references to such objects are different. Assigning one value of a reference variable to another creates a copy of the reference rather than the value itself. Comparing reference types using '==' checks if the references point to the same object, whereas comparing primitive types checks for value equality. When comparing two variables of a reference type, it compares the references (memory addresses) rather than the actual values. A variable of a reference type can refer to a special value that represents the fact that it is not initialized yet or does not have a value. This is different from primitive types, where a variable stores the actual value, whereas a variable of a reference type stores a memory address (reference) where the data is located.">reference variable</a> to another, we just make a copy of a reference rather than the value itself.</p>
+<h5 id="comparisons" style="text-align: center;">Comparisons</h5>
+<p>Comparing reference types using <code class="language-java">==</code> and <code class="language-java">!=</code> is not the same as comparing primitive types. Actually, when you are comparing two variables of the <code class="language-java">String</code> type, it compares references (addresses) rather than actual values.</p>
+<p>The following code demonstrates it:</p>
+<pre><code class="language-java">String s1 = new String("java");
+String s2 = new String("java");
+String s3 = s2;
+
+System.out.println(s1 == s2); // false
+System.out.println(s2 == s3); // true
+</code></pre>
+<p>The picture below demonstrates this effect:<br/><br/>
+</p>
+<p style="text-align: center;"><picture><img alt="Comparing reference types" height="299" src="https://ucarecdn.com/0bdcd814-44e7-4f18-94a4-5605064c277c/" width="349"/></picture></p>
+<p><br/><br/>
+So, you should not use comparison operators when you want to compare the values. The correct way to compare content is to invoke the special method <code class="language-java">equals</code>.</p>
+<pre><code class="language-java">String s1 = new String("java");
+String s2 = new String("java");
+String s3 = s2;
+
+System.out.println(s1.equals(s2)); // true
+System.out.println(s2.equals(s3)); // true
+</code></pre>
+<h5 id="the-null-type" style="text-align: center;">The null type</h5>
+<p>Unlike primitive types, a variable of a reference type can refer to a special <code class="language-java">null</code> value that represents the fact that it is not initialized yet or doesn't have a value.</p>
+<pre><code class="language-java">String str = null;
+System.out.println(str); // null
+str = "hello";
+System.out.println(str); // hello</code></pre>
+<p>The following statement with a primitive type won't compile.</p>
+<pre><code class="language-java">int n = null; // it won't compile</code></pre>
+<p>Unfortunately, the frequent use of the <code class="language-java">null</code> value can easily lead to errors in the program and complicate the code. Try to avoid <code class="language-java">null</code> whenever it is possible, only use it if you really need it.</p>
+</div>

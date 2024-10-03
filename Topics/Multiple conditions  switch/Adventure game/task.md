@@ -1,0 +1,1 @@
+Fill blanks tasks are not supported yet. <br>Solve this step on <a href="https://hyperskill.org/learn/step/39581">Hyperskill</a>. <br><br>After you have solved the step, click "Sync with Browser"  to move on.
